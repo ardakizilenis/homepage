@@ -33,6 +33,24 @@ span.nav-icon{
     width: 20px;
 }
 
+h3{
+    color: #76ABAE;
+    font-family: "Quicksand", sans-serif;
+}
+h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+h3 a:hover {
+    opacity: 0.8;
+}
+
+
+p{
+    color: #ffffff;
+    font-family: "Quicksand", sans-serif;
+}
+
 .content-container{
     display: grid;
     grid-template-rows: repeat(3, 1fr);
@@ -45,39 +63,70 @@ span.nav-icon{
     border-radius: 20px;
     background-color: #31363F;
 }
-.proj1-screenshot{
+.proj1-screenshot,
+.proj2-screenshot,
+.proj3-screenshot {
     grid-row: span 1;
     grid-column: span 1;
+    overflow: hidden;
 }
-.proj1-text{
+.proj-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 5px solid #76ABAE;
+    object-position: top;
+    display: block;
+}
+.proj1-text,
+.proj2-text,
+.proj3-text {
     grid-row: span 1;
     grid-column: span 3;
+    padding: 15px;
 }
+
 .skills{
     grid-row: span 2;
     grid-column: span 1;
+    padding: 15px;
 }
-.proj2-text{
-    grid-row: span 1;
-    grid-column: span 3;
+.skills-title{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 30px;
 }
-.proj2-screenshot{
-    grid-row: span 1;
-    grid-column: span 1;
+.skills-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
 }
-.proj3-screenshot{
-    grid-row: span 1;
-    grid-column: span 1; 
+.skill-img{
+    width: 40px;
 }
-.proj3-text{
-    grid-row: span 1;
-    grid-column: span 3;
+
+.github-link-title{
+    padding: 15px;
+}
+.github-img-container{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.github-img{
+    height: 100px;
 }
 
 @media(max-width: 1024px){
     .content-container{
         display: flex;
         flex-direction: column;
+        gap: 24px;
+        height: auto;
     }
     header {
         position: fixed;
@@ -98,6 +147,61 @@ span.nav-icon{
         width: 28px;
         height: 28px;
     }
+    .mobile-spacer{
+        order: 8;
+        display: flex;
+        padding: 38px;
+    }
+    .proj1-screenshot{
+        order: 1;
+        padding: 0;
+        margin-bottom: 0px;
+    }
+    .proj1-text{
+        order: 2;
+        padding: 16px;
+        margin-bottom: 30px;
+    }
+    .proj2-screenshot{
+        order: 3;
+        padding: 0;
+    }
+    .proj2-text{
+        order: 4;
+        padding: 16px;
+        margin-bottom: 30px;
+    }
+    .proj3-screenshot{
+        order: 5;
+        padding: 0;
+    }
+    .proj3-text{
+        order: 6;
+        padding: 16px;
+        margin-bottom: 30px;
+    }
+    .proj-img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+    }
+    .skills{
+        order: 7;
+        padding: 16px;
+    }
+    .github-link{
+        order: 8;
+        text-align: center;
+    }
+    .github-img-container {
+        height: auto;
+        padding-bottom: 16px;
+    }
 }
 
 @media(max-width: 768px){
@@ -116,6 +220,19 @@ span.nav-icon{
     }
     li.nav-item > a.active{
         width: 40px;
+    }
+    .content-container {
+        gap: 18px;
+    }
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .skill-img {
+        width: 36px;
+    }
+    .github-img {
+        height: 80px;
     }
 }
 
