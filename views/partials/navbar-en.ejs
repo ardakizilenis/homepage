@@ -1,0 +1,94 @@
+<header class="d-flex justify-content-center py-2 mb-2"> 
+    <ul class="nav nav-pills gap-5"> 
+
+        <li class="nav-item">
+            <div class="holographic-container">
+                <div class="holographic-card">
+                    <% if(locals.current == "home") { %>
+                        <a href="/home-en" class="nav-link active" aria-current="page">
+                            <span class="nav-icon"><img src="/images/home-svgrepo-white.svg" alt=""></span>
+                            <span class="nav-text">Home</span>
+                        </a>
+                    <% } else { %>
+                        <a href="/home-en" class="nav-link">
+                            <span class="nav-icon"><img src="/images/home-svgrepo-green.svg" alt=""></span>
+                            <span class="nav-text">Home</span>
+                        </a>    
+                    <% } %> 
+                </div>
+            </div>
+        </li> 
+        
+        <li class="nav-item">
+            <div class="holographic-container">
+                <div class="holographic-card">
+                    <% if(locals.current == "cv") { %>
+                        <a href="/cv-en" class="nav-link active" aria-current="page">
+                            <span class="nav-icon"><img src="/images/curriculum-with-picture-svgrepo-white.svg" alt=""></span>
+                            <span class="nav-text">CV</span>
+                        </a>
+                    <% } else { %>
+                        <a href="/cv-en" class="nav-link">
+                            <span class="nav-icon"><img src="/images/curriculum-with-picture-svgrepo-green.svg" alt=""></span>
+                            <span class="nav-text">CV</span>
+                        </a>    
+                    <% } %>
+                </div>
+            </div>    
+        </li>
+
+        <li class="nav-item">
+            <div class="holographic-container">
+                <div class="holographic-card">
+                    <% if(locals.current == "portfolio") { %>
+                        <a href="/portfolio-en" class="nav-link active" aria-current="page">
+                            <span class="nav-icon"><img src="/images/tick-circle-svgrepo-white.svg" alt=""></span>
+                            <span class="nav-text">Projects</span>
+                        </a>
+                    <% } else { %>
+                        <a href="/portfolio-en" class="nav-link">
+                            <span class="nav-icon"><img src="/images/tick-circle-svgrepo-green.svg" alt=""></span>
+                            <span class="nav-text">Projects</span>
+                        </a>    
+                    <% } %> 
+                </div>
+            </div>        
+        </li>
+
+        <li class="nav-item">
+            <div class="holographic-container">
+                <div class="holographic-card">
+                    <% if(locals.current == "about-me") { %>
+                        <a href="/about-me-en" class="nav-link active" aria-current="page">
+                            <span class="nav-icon"><img src="/images/profile-outlined-svgrepo-white.svg" alt=""></span>
+                            <span class="nav-text">About Me</span>
+                        </a>
+                    <% } else { %>
+                        <a href="/about-me-en" class="nav-link">
+                            <span class="nav-icon"><img src="/images/profile-outlined-svgrepo-green.svg" alt=""></span>
+                            <span class="nav-text">About Me</span>
+                        </a>    
+                    <% } %>
+                </div>
+            </div> 
+        </li>
+
+        <li class="nav-item">
+            <div class="holographic-container">
+                <div class="holographic-card">
+                    <% if(locals.current == "contact") { %>
+                        <a href="/contact-en" class="nav-link active" aria-current="page">
+                            <span class="nav-icon"><img src="/images/mail-svgrepo-white.svg" alt=""></span>
+                            <span class="nav-text">Contact</span>
+                            </a>
+                    <% } else { %>
+                        <a href="/contact-en" class="nav-link">
+                            <span class="nav-icon"><img src="/images/mail-svgrepo-green.svg" alt=""></span>
+                            <span class="nav-text ">Contact</span>
+                        </a>    
+                    <% } %>
+                </div>
+            </div>
+        </li>
+    </ul> 
+</header>

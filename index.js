@@ -23,10 +23,42 @@ app.get("/home", (req, res) => {
     }
   );
 });
+app.get("/home-tr", (req, res) => {
+  current = "home";
+  res.render(`${current}-tr.ejs`, 
+    {
+        current: current
+    }
+  );
+});
+app.get("/home-en", (req, res) => {
+  current = "home";
+  res.render(`${current}-en.ejs`, 
+    {
+        current: current
+    }
+  );
+});
 
 app.get("/cv", (req, res) => {
   current = "cv";
   res.render(`${current}.ejs`, 
+    {
+        current: current
+    }
+  );
+});
+app.get("/cv-tr", (req, res) => {
+  current = "cv";
+  res.render(`${current}-tr.ejs`, 
+    {
+        current: current
+    }
+  );
+});
+app.get("/cv-en", (req, res) => {
+  current = "cv";
+  res.render(`${current}-en.ejs`, 
     {
         current: current
     }
@@ -41,6 +73,22 @@ app.get("/portfolio", (req, res) => {
     }
   );
 });
+app.get("/portfolio-tr", (req, res) => {
+  current = "portfolio";
+  res.render(`${current}-tr.ejs`, 
+    {
+        current: current
+    }
+  );
+});
+app.get("/portfolio-en", (req, res) => {
+  current = "portfolio";
+  res.render(`${current}-en.ejs`, 
+    {
+        current: current
+    }
+  );
+});
 
 app.get("/about-me", (req, res) => {
   current = "about-me";
@@ -50,10 +98,42 @@ app.get("/about-me", (req, res) => {
     }
   );
 });
+app.get("/about-me-tr", (req, res) => {
+  current = "about-me";
+  res.render(`${current}-tr.ejs`, 
+    {
+        current: current
+    }
+  );
+});
+app.get("/about-me-en", (req, res) => {
+  current = "about-me";
+  res.render(`${current}-en.ejs`, 
+    {
+        current: current
+    }
+  );
+});
 
 app.get("/contact", (req, res) => {
   current = "contact";
   res.render(`${current}.ejs`, 
+    {
+        current: current
+    }
+  );
+});
+app.get("/contact-tr", (req, res) => {
+  current = "contact";
+  res.render(`${current}-tr.ejs`, 
+    {
+        current: current
+    }
+  );
+});
+app.get("/contact-en", (req, res) => {
+  current = "contact";
+  res.render(`${current}-en.ejs`, 
     {
         current: current
     }
