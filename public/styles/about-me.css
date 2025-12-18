@@ -19,8 +19,13 @@ header{
 .nav-link{
     color: #76ABAE;
     font-family: "Quicksand", sans-serif;
+    display: flex;
+    flex-direction: column;
 }
-li.nav-item > a.active{
+.nav-link:hover{
+    color: #76ABAE
+}
+a.nav-link.active{
     background-color: #76ABAE !important;
     border-radius: 20px;
     color: #ffffff !important;
@@ -56,10 +61,7 @@ span.nav-icon{
     align-items: center;
     transition: 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-.section:hover{
-    transform: scale(1.01);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
-}
+
 .pic{
     display: flex;
     justify-content: center;
@@ -106,6 +108,55 @@ span.nav-icon{
     grid-row: span 1;
     grid-column: span 1;
     background-color: #76ABAE;
+}
+
+.holographic-container{
+  height: auto;
+  background: transparent;
+  padding: 12px 0;
+}
+.holographic-card {
+  width: auto;
+  height: auto;
+  background:#31363F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+  transition: all 0.5s ease;
+}
+.holographic-card a{
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.holographic-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(0,255,255,0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+.holographic-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+.holographic-card:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
 }
 
 @media(max-width: 1024px){

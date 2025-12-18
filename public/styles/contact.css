@@ -19,8 +19,13 @@ header{
 .nav-link{
     color: #76ABAE;
     font-family: "Quicksand", sans-serif;
+    display: flex;
+    flex-direction: column;
 }
-li.nav-item > a.active{
+.nav-link:hover{
+    color: #76ABAE
+}
+a.nav-link.active{
     background-color: #76ABAE !important;
     border-radius: 20px;
     color: #ffffff !important;
@@ -175,10 +180,6 @@ textarea:focus-visible{
   flex-direction: column;
   transition: transform .3s ease, box-shadow .3s ease;
 }
-.section:hover{
-  transform: scale(1.008);
-  box-shadow: var(--shadow);
-}
 
 .adress{
     grid-row: span 2;
@@ -194,6 +195,83 @@ textarea:focus-visible{
 }
 a > img{
     width: 100px;
+}
+
+.holographic-container{
+  height: auto;
+  background: transparent;
+  padding: 12px 0;
+}
+.holographic-card {
+  width: auto;
+  height: auto;
+  background:#31363F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+  transition: all 0.5s ease;
+}
+.holographic-card a{
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.holographic-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(0,255,255,0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+.holographic-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+.holographic-card:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+
+.hover-underline {
+  font-size: 2rem;
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+}
+.hover-underline::after,
+.hover-underline::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #ff0000, #00ffff);
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
+}
+.hover-underline::before {
+  top: -5px;
+  transform-origin: left;
+}
+.hover-underline:hover::after,
+.hover-underline:hover::before {
+  transform: scaleX(1);
 }
 
 @media(max-width: 1024px){
