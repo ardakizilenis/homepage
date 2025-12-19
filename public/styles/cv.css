@@ -350,6 +350,10 @@ img.downnload-button {
     display: flex;
     padding: 39px;
   }
+
+  .holographic-card{
+        background-color: transparent;
+    }
 }
 
 @media (max-width: 768px) {

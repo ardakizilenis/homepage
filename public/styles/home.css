@@ -334,6 +334,9 @@ span.nav-icon{
     .quote.section{
         text-align:center;
     }
+    .holographic-card{
+        background-color: transparent;
+    }
 }
 
 @media(max-width:768px){

@@ -371,6 +371,10 @@ textarea:focus-visible {
   .emoji {
     display: none;
   }
+
+  .holographic-card{
+        background-color: transparent;
+    }
 }
 
 @media (max-width: 768px) {
