@@ -4,142 +4,76 @@ import { fileURLToPath } from "url";
 
 const app = express();
 const port = 3000;
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-let current = ""
-
 app.use(express.static(path.join(__dirname, "public")));
+app.set("view engine", "ejs");
 
+/* -------------------------
+   Helper: Sprache aus URL
+-------------------------- */
+function getLang(path) {
+  if (path.endsWith("-en")) return "en";
+  if (path.endsWith("-tr")) return "tr";
+  return "de";
+}
+
+/* -------------------------
+   Zentrale Seiten-Logik
+-------------------------- */
+function renderPage(page) {
+  return (req, res) => {
+    const lang = getLang(req.path);
+    const suffix = lang === "de" ? "" : `-${lang}`;
+
+    res.render(`${page}${suffix}.ejs`, {
+      current: page,
+      lang
+    });
+  };
+}
+
+/* -------------------------
+   Redirect
+-------------------------- */
 app.get("/", (req, res) => {
-    res.redirect("/home");
+  res.redirect("/home");
 });
 
-app.get("/home", (req, res) => {
-  current = "home";
-  res.render(`${current}.ejs`, 
-    {
-        current: current
-    }
-  );
-});
-app.get("/home-tr", (req, res) => {
-  current = "home";
-  res.render(`${current}-tr.ejs`, 
-    {
-        current: current
-    }
-  );
-});
-app.get("/home-en", (req, res) => {
-  current = "home";
-  res.render(`${current}-en.ejs`, 
-    {
-        current: current
-    }
-  );
-});
+/* -------------------------
+   Routen (sauber & kurz)
+-------------------------- */
 
-app.get("/cv", (req, res) => {
-  current = "cv";
-  res.render(`${current}.ejs`, 
-    {
-        current: current
-    }
-  );
-});
-app.get("/cv-tr", (req, res) => {
-  current = "cv";
-  res.render(`${current}-tr.ejs`, 
-    {
-        current: current
-    }
-  );
-});
-app.get("/cv-en", (req, res) => {
-  current = "cv";
-  res.render(`${current}-en.ejs`, 
-    {
-        current: current
-    }
-  );
-});
+// Home
+app.get("/home", renderPage("home"));
+app.get("/home-en", renderPage("home"));
+app.get("/home-tr", renderPage("home"));
 
-app.get("/portfolio", (req, res) => {
-  current = "portfolio";
-  res.render(`${current}.ejs`, 
-    {
-        current: current
-    }
-  );
-});
-app.get("/portfolio-tr", (req, res) => {
-  current = "portfolio";
-  res.render(`${current}-tr.ejs`, 
-    {
-        current: current
-    }
-  );
-});
-app.get("/portfolio-en", (req, res) => {
-  current = "portfolio";
-  res.render(`${current}-en.ejs`, 
-    {
-        current: current
-    }
-  );
-});
+// CV
+app.get("/cv", renderPage("cv"));
+app.get("/cv-en", renderPage("cv"));
+app.get("/cv-tr", renderPage("cv"));
 
-app.get("/about-me", (req, res) => {
-  current = "about-me";
-  res.render(`${current}.ejs`, 
-    {
-        current: current
-    }
-  );
-});
-app.get("/about-me-tr", (req, res) => {
-  current = "about-me";
-  res.render(`${current}-tr.ejs`, 
-    {
-        current: current
-    }
-  );
-});
-app.get("/about-me-en", (req, res) => {
-  current = "about-me";
-  res.render(`${current}-en.ejs`, 
-    {
-        current: current
-    }
-  );
-});
+// Portfolio
+app.get("/portfolio", renderPage("portfolio"));
+app.get("/portfolio-en", renderPage("portfolio"));
+app.get("/portfolio-tr", renderPage("portfolio"));
 
-app.get("/contact", (req, res) => {
-  current = "contact";
-  res.render(`${current}.ejs`, 
-    {
-        current: current
-    }
-  );
-});
-app.get("/contact-tr", (req, res) => {
-  current = "contact";
-  res.render(`${current}-tr.ejs`, 
-    {
-        current: current
-    }
-  );
-});
-app.get("/contact-en", (req, res) => {
-  current = "contact";
-  res.render(`${current}-en.ejs`, 
-    {
-        current: current
-    }
-  );
-});
+// About Me
+app.get("/about-me", renderPage("about-me"));
+app.get("/about-me-en", renderPage("about-me"));
+app.get("/about-me-tr", renderPage("about-me"));
 
+// Contact
+app.get("/contact", renderPage("contact"));
+app.get("/contact-en", renderPage("contact"));
+app.get("/contact-tr", renderPage("contact"));
+
+/* -------------------------
+   Server
+-------------------------- */
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });

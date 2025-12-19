@@ -1,94 +1,37 @@
-<header class="d-flex justify-content-center py-2 mb-2"> 
-    <ul class="nav nav-pills gap-5"> 
+<%
+const navItems = [
+  { key: "home", label: "Home", href: "/home", icon: "home-svgrepo" },
+  { key: "cv", label: "Lebenslauf", href: "/cv", icon: "curriculum-with-picture-svgrepo" },
+  { key: "portfolio", label: "Projekte", href: "/portfolio", icon: "tick-circle-svgrepo" },
+  { key: "about-me", label: "Über Mich", href: "/about-me", icon: "profile-outlined-svgrepo" },
+  { key: "contact", label: "Kontakt", href: "/contact", icon: "mail-svgrepo" }
+];
+%>
+
+<header class="d-flex justify-content-center py-2 mb-2">
+    <ul class="nav nav-pills gap-5">
+
+        <% navItems.forEach(item => { 
+            const isActive = locals.current === item.key;
+        %>
 
         <li class="nav-item">
             <div class="holographic-container">
                 <div class="holographic-card">
-                    <% if(locals.current == "home") { %>
-                        <a href="/home" class="nav-link active" aria-current="page">
-                            <span class="nav-icon"><img src="/images/home-svgrepo-white.svg" alt=""></span>
-                            <span class="nav-text">Home</span>
-                        </a>
-                    <% } else { %>
-                        <a href="/home" class="nav-link">
-                            <span class="nav-icon"><img src="/images/home-svgrepo-green.svg" alt=""></span>
-                            <span class="nav-text">Home</span>
-                        </a>    
-                    <% } %> 
-                </div>
-            </div>
-        </li> 
-        
-        <li class="nav-item">
-            <div class="holographic-container">
-                <div class="holographic-card">
-                    <% if(locals.current == "cv") { %>
-                        <a href="/cv" class="nav-link active" aria-current="page">
-                            <span class="nav-icon"><img src="/images/curriculum-with-picture-svgrepo-white.svg" alt=""></span>
-                            <span class="nav-text">Lebenslauf</span>
-                        </a>
-                    <% } else { %>
-                        <a href="/cv" class="nav-link">
-                            <span class="nav-icon"><img src="/images/curriculum-with-picture-svgrepo-green.svg" alt=""></span>
-                            <span class="nav-text">Lebenslauf</span>
-                        </a>    
-                    <% } %>
-                </div>
-            </div>    
-        </li>
-
-        <li class="nav-item">
-            <div class="holographic-container">
-                <div class="holographic-card">
-                    <% if(locals.current == "portfolio") { %>
-                        <a href="/portfolio" class="nav-link active" aria-current="page">
-                            <span class="nav-icon"><img src="/images/tick-circle-svgrepo-white.svg" alt=""></span>
-                            <span class="nav-text">Projekte</span>
-                        </a>
-                    <% } else { %>
-                        <a href="/portfolio" class="nav-link">
-                            <span class="nav-icon"><img src="/images/tick-circle-svgrepo-green.svg" alt=""></span>
-                            <span class="nav-text">Projekte</span>
-                        </a>    
-                    <% } %> 
-                </div>
-            </div>        
-        </li>
-
-        <li class="nav-item">
-            <div class="holographic-container">
-                <div class="holographic-card">
-                    <% if(locals.current == "about-me") { %>
-                        <a href="/about-me" class="nav-link active" aria-current="page">
-                            <span class="nav-icon"><img src="/images/profile-outlined-svgrepo-white.svg" alt=""></span>
-                            <span class="nav-text">Über Mich</span>
-                        </a>
-                    <% } else { %>
-                        <a href="/about-me" class="nav-link">
-                            <span class="nav-icon"><img src="/images/profile-outlined-svgrepo-green.svg" alt=""></span>
-                            <span class="nav-text">Über Mich</span>
-                        </a>    
-                    <% } %>
-                </div>
-            </div> 
-        </li>
-
-        <li class="nav-item">
-            <div class="holographic-container">
-                <div class="holographic-card">
-                    <% if(locals.current == "contact") { %>
-                        <a href="/contact" class="nav-link active" aria-current="page">
-                            <span class="nav-icon"><img src="/images/mail-svgrepo-white.svg" alt=""></span>
-                            <span class="nav-text">Kontakt</span>
-                            </a>
-                    <% } else { %>
-                        <a href="/contact" class="nav-link">
-                            <span class="nav-icon"><img src="/images/mail-svgrepo-green.svg" alt=""></span>
-                            <span class="nav-text ">Kontakt</span>
-                        </a>    
-                    <% } %>
+                    <a href="<%= item.href %>"
+                       class="nav-link <%= isActive ? 'active' : '' %>"
+                       <%= isActive ? 'aria-current="page"' : '' %>>
+                        
+                        <span class="nav-icon">
+                            <img src="/images/<%= item.icon %>-white.svg" alt="">
+                        </span>
+                        <span class="nav-text"><%= item.label %></span>
+                    </a>
                 </div>
             </div>
         </li>
-    </ul> 
+
+        <% }); %>
+
+    </ul>
 </header>
