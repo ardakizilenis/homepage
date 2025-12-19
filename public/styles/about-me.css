@@ -121,12 +121,6 @@ a.nav-link.active {
   grid-column: span 3;
 }
 
-.hobby2-pic,
-.hobby2-text,
-.hobby4-pic,
-.hobby4-text {
-  /* no visual change; just grouping for readability */
-}
 
 .hobby3-text {
   /* exact same, explicit as in original */
