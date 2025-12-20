@@ -211,6 +211,18 @@ span.nav-icon{
     transform: scale(1.05);
     box-shadow: 0 0 20px #2977FF;
 }
+.holographic-card.turkey:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 20px red;
+}
+.holographic-card.germany:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 20px white;
+}
+.holographic-card.active{
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #2977FF;
+}
 
 .holographic-card:hover::before{
     opacity: 1;
